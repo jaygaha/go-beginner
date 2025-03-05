@@ -18,6 +18,11 @@ This directory contains various Go examples to help you learn the language step 
     - Printing to console
     - Formatting strings
 
+4. **[Arrays, Slices, and Maps](4_array_and_slices/4_README.md)**
+    - Fixed-length arrays
+    - Dynamic slices
+    - Key-value maps
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
