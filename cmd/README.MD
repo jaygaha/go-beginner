@@ -23,6 +23,12 @@ This directory contains various Go examples to help you learn the language step 
     - Dynamic slices
     - Key-value maps
 
+5. **[Control Flow](5_control_flow/5_README.md)**
+    - If/else statements
+    - Switch cases
+    - Loops (for, range)
+    - Control statements (break, continue)
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
