@@ -29,6 +29,15 @@ This directory contains various Go examples to help you learn the language step 
     - Loops (for, range)
     - Control statements (break, continue)
 
+6. **[Functions](6_functions/6_README.md)**
+    - Basic function syntax
+    - Multiple return values
+    - Variadic functions
+    - Defer statements
+    - Closures
+    - Recursion
+    - Anonymous functions
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
