@@ -38,6 +38,14 @@ This directory contains various Go examples to help you learn the language step 
     - Recursion
     - Anonymous functions
 
+7. **[Error Handling](7_error_handling/7_README.md)**
+    - The error interface
+    - Constructing basic errors
+    - Expected (sentinel) errors
+    - Custom error types
+    - Error handling best practices
+    - **[Panic and Recover](7_error_handling/7_1_panic_and_recover/7_1_README.md)**
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
