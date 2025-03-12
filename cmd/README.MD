@@ -46,6 +46,14 @@ This directory contains various Go examples to help you learn the language step 
     - Error handling best practices
     - **[Panic and Recover](7_error_handling/7_1_panic_and_recover/7_1_README.md)**
 
+8. **[Structs](8_structs_and_custom_types/8_README.md)**
+    - Basic function syntax
+    - Custom Types
+
+9. **[Methods and Interface](9_methods_and_interfaces/9_README.md)**
+    - Methods
+    - Interface
+    
 ## How to Run Examples
 
 1. Navigate to the specific example directory
