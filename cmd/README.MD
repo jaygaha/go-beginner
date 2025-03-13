@@ -53,6 +53,12 @@ This directory contains various Go examples to help you learn the language step 
 9. **[Methods and Interface](9_methods_and_interfaces/9_README.md)**
     - Methods
     - Interface
+
+10. **[Packages and Modules](10_packages_and_modules/10_README.md)**
+    - Package organization
+    - Module management
+    - Local/remote imports
+    - Semantic versioning
     
 ## How to Run Examples
 
