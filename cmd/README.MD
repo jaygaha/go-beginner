@@ -59,7 +59,14 @@ This directory contains various Go examples to help you learn the language step 
     - Module management
     - Local/remote imports
     - Semantic versioning
-    
+
+11. **[Basic Miscellaneous](11_basic_misc/11_README.md)**
+    - Type Casting
+    - Type Inference
+    - Type Assertions
+    - Type Switches
+    - Maps and Make
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
