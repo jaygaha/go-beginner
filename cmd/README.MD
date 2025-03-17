@@ -67,6 +67,13 @@ This directory contains various Go examples to help you learn the language step 
     - Type Switches
     - Maps and Make
 
+12. **[Concurrency](12_concurrency/12_README.md)**
+    - Goroutines
+    - Channels (Buffered and Unbuffered)
+    - Select Statement
+    - Synchronization (WaitGroup, Mutex)
+    
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
