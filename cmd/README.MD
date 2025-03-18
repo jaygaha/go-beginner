@@ -66,6 +66,8 @@ This directory contains various Go examples to help you learn the language step 
     - Type Assertions
     - Type Switches
     - Maps and Make
+    - Pointers
+    - Generics
 
 12. **[Concurrency](12_concurrency/12_README.md)**
     - Goroutines

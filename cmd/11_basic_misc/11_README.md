@@ -104,6 +104,65 @@ make(map[KeyType]ValueType)           // Create map
 make(map[KeyType]ValueType, capacity) // Create map with initial capacity
 ```
 
+## Pointers
+
+- A pointer is a variable that stores the memory address of another variable
+- Allows passing references to values instead of copying them
+- Unlike C, Go has no pointer arithmetic
+
+**Syntax:**
+
+```go
+// Declaration
+var ptr *int       // Declare pointer to int (zero value is nil)
+ptr = &x          // Get address of x
+ptr = new(int)    // Allocate new memory and get its address
+
+// Dereferencing
+*ptr              // Access the value ptr points to
+*ptr = newValue   // Modify the value ptr points to
+```
+
+### Pass by Value vs Reference
+
+```go
+// Pass by value - original value unchanged
+func zeroVal(iVal int) {
+    iVal = 0
+}
+
+// Pass by reference - original value modified
+func zeroPtr(iPtr *int) {
+    *iPtr = 0
+}
+
+// Usage
+i := 1
+zeroVal(i)     // i is still 1
+zeroPtr(&i)    // i becomes 0
+```
+
+## Generics
+
+- Introduced in Go 1.18
+- Also known as type parameters
+- Allow writing code that works with multiple types
+- Reduce code duplication while maintaining type safety
+
+**Syntax:**
+
+```go
+// Generic function with type parameter T
+func FunctionName[T Type](param T) ReturnType {
+    // function body
+}
+
+// Type constraint interface
+type Constraint interface {
+    Type1 | Type2 | Type3
+}
+```
+
 ## How to Run
 
 Execute the following command from this directory:
@@ -119,3 +178,4 @@ go run .
 - [Types Assertions](https://go.dev/tour/methods/15)
 - [Effective Go: Maps](https://go.dev/doc/effective_go#maps)
 - [Effective Go: Allocation with make](https://go.dev/doc/effective_go#allocation_make)
+- [Go Tour: Pointers](https://go.dev/tour/moretypes/1)
