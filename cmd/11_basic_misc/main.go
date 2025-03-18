@@ -18,8 +18,14 @@ func main() {
 	fmt.Println("\n=== 11.4 Type Switches ===")
 	TypeSwitches()
 
-	fmt.Println("\n=== 11.4 Maps and Make ===")
+	fmt.Println("\n=== 11.5 Maps and Make ===")
 	MakeMaps()
+
+	fmt.Println("\n=== 11.6 Pointers ===")
+	Pointers()
+
+	fmt.Println("\n=== 11.7 Generics ===")
+	Generics()
 
 	fmt.Println("\n=== End of Basic Miscellaneous Topics ===")
 }
