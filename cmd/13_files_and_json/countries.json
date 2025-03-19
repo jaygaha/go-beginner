@@ -1,0 +1,13 @@
+[
+    {"name": "Japan", "capital": "Tokyo", "continent": "Asia", "area": 8548980},
+    {"name": "Nepal", "capital": "Kathmandu", "continent": "Asia", "area": 127730},
+    {"name": "France", "capital": "Paris", "continent": "Europe", "area": 547030},
+    {"name": "Ireland", "capital": "Dublin", "continent": "Europe", "area": 505990},
+    {"name": "Canada", "capital": "Ottawa", "continent": "North America", "area": 9984670},
+    {"name": "Mexico", "capital": "Mexico City", "continent": "North America", "area": 1972550},
+    {"name": "Ghana", "capital": "Accra", "continent": "Africa", "area": 2381070},
+    {"name": "Nigeria", "capital": "Abuja", "continent": "Africa", "area": 9237680},
+    {"name": "Brasil", "capital": "Brasilia", "continent": "South America", "area": 8515767},
+    {"name": "Argentina", "capital": "Buenos Aires", "continent": "South America", "area": 2780400},
+    {"name": "Australia", "capital": "Canberra", "continent": "Australia", "area": 7692024}
+]
