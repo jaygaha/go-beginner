@@ -74,7 +74,12 @@ This directory contains various Go examples to help you learn the language step 
     - Channels (Buffered and Unbuffered)
     - Select Statement
     - Synchronization (WaitGroup, Mutex)
-    
+
+13. **[File I/O and Working with JSON](13_files_and_json/13_README.md)**
+    - File I/O
+    - Working with JSON
+    - JSON Marshalling and Unmarshalling
+    - JSON Encoding and Decoding
 
 ## How to Run Examples
 
