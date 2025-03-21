@@ -68,6 +68,11 @@ default:
 - Provides mutual exclusion
 - Prevents race conditions in shared memory access
 
+### 5. Context
+
+- Allows for cancellation, deadline, and value propagation
+- Used for long-running tasks that can be canceled
+
 ## Best Practices
 
 1. Don't communicate by sharing memory; share memory by communicating
@@ -87,6 +92,7 @@ Check the source files in this directory for detailed examples:
 - `12_2_1_unbuffered_channels.go` - Working with unbuffered channels
 - `12_2_2_buffered_channels.go` - Working with buffered channels
 - `12_2_3_select.go` - Using select for multiple channel operations
+- `12_3_context.go` - Context for managing goroutine lifecycles
 
 
 ## How to Run

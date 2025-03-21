@@ -31,4 +31,9 @@ func main() {
 	fmt.Println()
 	fmt.Println("-----Select-----")
 	SelectChannel()
+
+	fmt.Println()
+	fmt.Println("-----Context Package-----")
+	openConnectionWithTimeout()
+	contextWithValue()
 }
