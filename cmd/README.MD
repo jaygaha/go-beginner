@@ -87,6 +87,18 @@ This directory contains various Go examples to help you learn the language step 
     - Package testing
     - Table-driven tests
 
+15. **[Command line interfaces](15_cli/15_README.md)**
+    - Basic CLI
+    - Flags
+    - Subcommands
+    - Parsing arguments
+
+16. **Web Development**
+    - [HTTP Server](16_http/servers/README.md)
+        - basic server
+        - multiplexing
+        - multiple server configuration
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
