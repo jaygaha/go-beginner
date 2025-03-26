@@ -98,6 +98,10 @@ This directory contains various Go examples to help you learn the language step 
         - basic server
         - multiplexing
         - multiple server configuration
+    - [HTTP Client](16_http/clients/README.md)
+        - basic client
+        - request and response
+        - error handling
 
 ## How to Run Examples
 
