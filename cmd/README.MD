@@ -103,6 +103,20 @@ This directory contains various Go examples to help you learn the language step 
         - request and response
         - error handling
 
+17. **Database**
+    - [SQLite](17_database/1_sqlite/README.md)
+        - basic database
+        - CRUD operations
+        - error handling
+        - advanced
+            - [Advanced](17_database/1_sqlite/advanced/README.md)
+                - CRUD operations
+                - Context
+                - error handling
+                - best practices
+                - transactions
+                - testing
+
 ## How to Run Examples
 
 1. Navigate to the specific example directory
