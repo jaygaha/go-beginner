@@ -1,0 +1,24 @@
+
+Cars:
+{{/*
+    Use of eq:
+    eq: 
+    - Checks if two values are equal.
+    - Returns true if the values are equal, false otherwise.
+    - Usage: {{ if eq .Value1 .Value2 }}...{{ end }}
+*/}}
+
+Total Cars: {{ . | len -}}
+
+
+{{ range . }}
+Model: {{ .Model }}
+Brand: {{ .Brand }}
+Color: {{ .Color }}
+Power: {{.Power }}
+Build year: {{.BuildYear }}
+Manufacturer country: {{.ManufacturerCountry }}
+Is Electric: {{ if .IsElectric }}Yes{{ else }}No{{ end }}
+Is Discontinued: {{ if .IsDiscontinued }}Yes{{ else }}No{{ end }}
+---
+{{ end }}
