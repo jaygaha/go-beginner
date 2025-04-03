@@ -5,7 +5,7 @@ A template is a text document that contains variables or tags that will be repla
 
 Go provides the `text/template` and `html/template` packages to create templates.
 
-- [text/template](19_1_test/README.md)
+- [text/template](18_1_test/README.md)
 
 ## Template Syntax
 
@@ -48,4 +48,6 @@ func main() {
 ```
 
 ## Further Reading
+
+- [Chapter 9 Templates](https://jan.newmarch.name/golang/template/chapter-template.html)
 - [Go by Example: Text Templates](https://gobyexample.com/text-templates)
