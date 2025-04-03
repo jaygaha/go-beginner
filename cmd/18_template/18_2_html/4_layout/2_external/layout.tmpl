@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include the title block defined in the child template -->
+	<title>{{template "title" .}}</title>
+</head>
+<body>
+    <!-- Include the content block defined in the content template -->
+	{{template "content".}}
+
+    {{template "footer" .}}
+</body>
+</html>
+	
