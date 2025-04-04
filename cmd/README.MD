@@ -116,6 +116,13 @@ This directory contains various Go examples to help you learn the language step 
                 - best practices
                 - transactions
                 - testing
+    - [MySQL](17_database/2_mysql/README.md)
+        - connection
+        - CRUD operations using TDD approach
+        - transactions
+        - prepared statements
+        - context
+        - best practices
 18. **[Templates](18_template/README.md)**
     - [Text templates](18_template/18_1_text/README.md)
     - [HTML templates](18_template/18_2_html/README.md)
