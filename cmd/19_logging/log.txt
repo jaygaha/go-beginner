@@ -1,0 +1,9 @@
+INFO: 2025/04/07 14:17:36 main.go:94: This is an info message
+WARNING: 2025/04/07 14:17:36 main.go:95: This is a warning message
+ERROR: 2025/04/07 14:17:36 main.go:96: This is an error message
+INFO: 2025/04/07 14:28:48 main.go:76: This is an info message
+WARNING: 2025/04/07 14:28:48 main.go:77: This is a warning message
+ERROR: 2025/04/07 14:28:48 main.go:78: This is an error message
+INFO: 2025/04/07 14:30:14 main.go:76: This is an info message
+WARNING: 2025/04/07 14:30:14 main.go:77: This is a warning message
+ERROR: 2025/04/07 14:30:14 main.go:78: This is an error message
