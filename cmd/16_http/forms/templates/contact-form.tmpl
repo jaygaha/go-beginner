@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Contact Form</title>
+        <style type="text/css">.error {color: red;}</style>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form action="/contacts" method="POST" novalidate>
+            <div>
+                <p><label>Email:</label></p>
+                <p><input type="email" name="email" value="{{ .Email }}"></p>
+                {{ with .Errors.Email }}
+                <p class="error">{{ . }}</p>
+                {{ end }}
+            </div>
+            <div>
+                <p><label>Message:</label></p>
+                <p><textarea name="message">{{ .Message }}</textarea></p>
+                {{ with .Errors.Message }}
+                <p class="error" >{{ . }}</p>
+                {{ end }}
+            </div>
+            <div>
+                <input type="submit" value="Send">
+            </div>
+        </form>
+    </body>
+</html>
