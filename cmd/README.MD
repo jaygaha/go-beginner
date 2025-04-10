@@ -102,7 +102,11 @@ This directory contains various Go examples to help you learn the language step 
         - basic client
         - request and response
         - error handling
-
+    - [Middleware](16_http/middleware/README.md)
+        - basic middleware
+        - error handling
+        - logging
+        - authentication
 17. **Database**
     - [SQLite](17_database/1_sqlite/README.md)
         - basic database
@@ -126,6 +130,9 @@ This directory contains various Go examples to help you learn the language step 
 18. **[Templates](18_template/README.md)**
     - [Text templates](18_template/18_1_text/README.md)
     - [HTML templates](18_template/18_2_html/README.md)
+19. **[Logging](19_logging/README.md)**
+    - basic logging
+    - log using third party
 
 ## How to Run Examples
 

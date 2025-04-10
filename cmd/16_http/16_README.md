@@ -7,9 +7,8 @@ This directory contains examples of HTTP web programming in Go, demonstrating bo
 - [`/servers`](./servers) - HTTP server implementations
 - [`/clients`](./clients) - HTTP client implementations
 - [`/forms`](./forms) - Form handling and validation
-- [`/middleware`](./middleware) - HTTP middleware patterns [TODO]
-- [`/sessions`](./sessions) - Session management [TODO]
-- [`/cookies`](./cookies) - Cookie management [TODO]
+- [`/middleware`](./middleware) - HTTP middleware patterns
+- [`/sessions`](./sessions) - Session & Cookie management [TODO]
 - [`/websockets`](./websockets) - WebSocket support [TODO]
 - [`/uploads`](./uploads) - File upload handling [TODO]
 
@@ -53,6 +52,21 @@ The forms directory demonstrates how to handle HTML forms in Go, including form 
 - Handling file uploads
 - Displaying validation errors
 
+**[Further Reading](forms/README.md)**
+
+## Middleware (`/middleware`)
+
+The middleware directory demonstrates how to implement HTTP middleware in Go, which is a software design pattern that allows you to intercept and modify HTTP requests and responses.
+
+### Features
+
+- Implementing middleware for logging, authentication, and rate limiting
+- Chaining multiple middleware functions
+- Passing data between middleware functions
+- Handling errors in middleware
+
+**[Further Reading](middleware/README.md)**
+
 ## Key Concepts
 
 ### HTTP Methods
@@ -94,3 +108,4 @@ The forms directory demonstrates how to handle HTML forms in Go, including form 
 - [Go net/http Package Documentation](https://pkg.go.dev/net/http)
 - [Go by Example: HTTP Clients](https://gobyexample.com/http-clients)
 - [Go by Example: HTTP Servers](https://gobyexample.com/http-servers)
+- [Middleware pattern in Go](https://drstearns.github.io/tutorials/gomiddleware/)
