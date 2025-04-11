@@ -1,0 +1,76 @@
+/* CSS Boilerplate */
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Default font */
+    line-height: 1.6; /* Line height for readability */
+    color: #333; /* Default text color */
+    background-color: #f4f4f4; /* Background color */
+}
+
+/* Container for layout */
+.container {
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Padding around the content */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem; /* Space below headings */
+    color: #222; /* Heading color */
+}
+
+/* Links */
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Button styles */
+button {
+    padding: 10px 15px; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center; /* Center text */
+}
+
+.mt-1 {
+    margin-top: 1rem; /* Margin top */
+}
+
+.mb-1 {
+    margin-bottom: 1rem; /* Margin bottom */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+}
