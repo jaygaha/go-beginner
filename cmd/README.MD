@@ -107,6 +107,12 @@ This directory contains various Go examples to help you learn the language step 
         - error handling
         - logging
         - authentication
+    - [Sessions](16_http/sessions/README.md)
+        - basic session
+        - session management
+        - cookies
+    - [Assets](16_http/assets/README.md)
+    - [Password Hashing](16_http/hashing/README.md)
 17. **Database**
     - [SQLite](17_database/1_sqlite/README.md)
         - basic database
