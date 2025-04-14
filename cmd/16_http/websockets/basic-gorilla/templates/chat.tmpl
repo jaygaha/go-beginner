@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .chat-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-header {
+        background: #007bff;
+        color: white;
+        padding: 15px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        text-align: center;
+    }
+
+    .chat-box {
+        padding: 15px;
+        overflow-y: auto;
+        flex-grow: 1;
+        max-height: 300px;
+    }
+
+    .message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        max-width: 80%;
+    }
+
+    .message.received {
+        background: #e9ecef;
+        align-self: flex-start;
+    }
+
+    .message.sent {
+        background: #007bff;
+        color: white;
+        align-self: flex-end;
+    }
+
+    .chat-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #e9ecef;
+    }
+
+    .chat-input input {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .chat-input button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .chat-input button:hover {
+        background: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>Go Chat Application</h1>
+        </header>
+        <div class="chat-box" id="chat-box">
+            <div class="message received">
+                <p>Hello! How can I help you today?</p>
+            </div>
+            <div class="message sent">
+                <p>I have a question about your services.</p>
+            </div>
+        </div>
+        <form class="chat-input" id="chat-input">
+            <input type="text" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+    $(function() {
+        var socket = null;
+        var chatBox = $('#chat-input input');
+        var messageBox = $('#chat-box');
+
+        // Connect to the WebSocket server
+        // check if the browser supports WebSocket
+        if ('WebSocket' in window) {
+            socket = new WebSocket('ws://' + window.location.host + '/rooms');
+            
+            socket.onopen = function() {
+                console.log('Connected to WebSocket server');
+            }
+
+            socket.onclose = function() {
+                console.log('Disconnected from WebSocket server');
+            }
+
+            // Store the last sent message to avoid duplication
+            var lastSentMessage = '';
+            var lastSentTime = 0;
+            
+            socket.onmessage = function(event) {
+                var message = event.data;
+                console.log('Received message:', message);
+                
+                // Check if this message was just sent by the current user
+                // If the message is the same as the last sent message and was sent within the last second,
+                // don't display it again to avoid duplication
+                var currentTime = new Date().getTime();
+                if (message === lastSentMessage && currentTime - lastSentTime < 1000) {
+                    console.log('Skipping duplicate message');
+                    return;
+                }
+                
+                messageBox.append('<div class="message received"><p>' + message + '</p></div>');
+            }
+
+        } else {
+            alert('WebSocket is not supported by this browser.');
+            return;
+        }
+
+        // Send a message to the server
+        $('#chat-input').submit(function(event) {
+            event.preventDefault();
+            
+            var message = chatBox.val();
+            // check if message is empty
+            if (message === '') {
+                alert('Message cannot be empty.');
+                return;
+            }
+            // send
+            socket.send(message);
+            
+            // Store this message to avoid duplication when received back from server
+            lastSentMessage = message;
+            lastSentTime = new Date().getTime();
+            
+            // append the message to the message box
+            messageBox.append('<div class="message sent"><p>' + message + '</p></div>');
+            
+            // clear the input field
+            chatBox.val('');
+        });
+    });
+    </script>
+</body>
+</html>
