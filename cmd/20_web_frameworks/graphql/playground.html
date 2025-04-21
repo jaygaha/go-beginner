@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GraphQL Playground</title>
+    <script src="https://unpkg.com/graphql-playground-react@1.7.28/build/static/js/middleware.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/graphql-playground-react@1.7.28/build/static/css/index.css" />
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        window.addEventListener('load', function (event) {
+            GraphQLPlayground.init(document.getElementById('root'), {
+                endpoint: '/books'
+            })
+        })
+    </script>
+</body>
+</html>
