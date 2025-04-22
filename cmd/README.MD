@@ -139,9 +139,10 @@ This directory contains various Go examples to help you learn the language step 
 19. **[Logging](19_logging/README.md)**
     - basic logging
     - log using third party
-20. **Web Frameworks**
-    - [gin](20_frameworks/20_1_gin/README.md)
-        - basic gin
+20. **[Web Frameworks](20_web_frameworks/20_README.md)**
+    - [gin](20_web_frameworks/gin/README.md)
+    - [graphql](20_web_frameworks/graphql/README.md)
+    - [grequest](20_web_frameworks/grequest/README.md)
 21. **[Scheduler](21_scheduler/21_README.md)**
 
 ## How to Run Examples
