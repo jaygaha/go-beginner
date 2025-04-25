@@ -33,7 +33,7 @@ query {
 
 Navigate to the `cmd/20_web_frameworks/graphql` directory and run:
 ```bash
-go mode tidy # to install dependencies
+go mode download # to install dependencies
 go run main.go # to run the server
 ```
 

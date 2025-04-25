@@ -47,7 +47,7 @@ This project demonstrates basic CRUD operations using GORM, an ORM library for G
    ```bash
    git clone https://github.com/jaygaha/go-beginner.git
    cd go-beginner/cmd/17_database/3_gorm # Navigate to the project directory
-   go mod tidy # Download dependencies
+   go mod download # Download dependencies
    ```
 
 ## Usage

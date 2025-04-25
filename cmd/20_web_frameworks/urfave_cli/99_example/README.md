@@ -25,7 +25,7 @@ This application showcases two common CLI commands:
 2. Install dependencies:
 
 ```bash
-go mod tidy
+go mod download
 ```
 
 ## Usage
