@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "a010ca3d-6c3d-4715-9eff-2ecec4ec7717",
+		"name": "Golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19744408"
+	},
+	"item": [
+		{
+			"name": "go-beginners",
+			"item": [
+				{
+					"name": "rest",
+					"item": [
+						{
+							"name": "Bags",
+							"item": [
+								{
+									"name": "List All",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8800/bags",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8800",
+											"path": [
+												"bags"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"Bag 1\",\n    \"sku\": 122\n\n    // \"name\":\"Bag 2\",\n    // \"sku\": 123\n    \n    // \"name\":\"Bag 3\",\n    // \"sku\": 123\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8800/bags",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8800",
+											"path": [
+												"bags"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8800/bags?id=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8800",
+											"path": [
+												"bags"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\":1,\n    \"name\":\"Bag 1 updated\",\n    \"sku\": 121\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8800/bags?id=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8800",
+											"path": [
+												"bags"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8800/bags?id=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8800",
+											"path": [
+												"bags"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "[https://github.com/jaygaha/go_beginner/cmd/20_web_frameworks/rest](https://github.com/jaygaha/go_beginner/cmd/20_web_frameworks/rest)"
+		}
+	]
+}
