@@ -1,0 +1,23 @@
+# A Book type with id, title, author, and published fields
+type Book {
+  id: ID!
+  title: String!
+  author: String!
+  published: Boolean!
+}
+
+# A Query to fetch all books
+type Query {
+  books: [Book!]!
+}
+
+# 
+input NewBook {
+  title: String!
+  author: String!
+}
+
+# A Mutation to add a new book using a NewBook input type
+type Mutation {
+  addBook(input: NewBook!): Book!
+}
