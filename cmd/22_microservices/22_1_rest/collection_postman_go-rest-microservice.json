@@ -1,0 +1,132 @@
+{
+    "info": {
+        "_postman_id": "50351d6a-dc46-43e0-b801-d1182a37319f",
+        "name": "go-rest-microservice",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Books",
+            "item": [
+                {
+                    "name": "Book list",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8801/books",
+                            "path": [
+                                "books"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8801"
+                        }
+                    }
+                },
+                {
+                    "name": "Create a book",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8801/books",
+                            "path": [
+                                "books"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8801"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"title\": \"The Go Programming Language\",\n  \"author\": \"Alan Donovan\",\n  \"price\": 199\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Book detail",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8801/books/733",
+                            "path": [
+                                "books",
+                                "733"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8801"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Orders",
+            "item": [
+                {
+                    "name": "Create an order",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8802/orders",
+                            "path": [
+                                "orders"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8802"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"book_id\": 733,\n  \"quantity\": 1,\n  \"total_cost\": 199,\n  \"customer\": \"customer 1\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Order list",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8802/orders",
+                            "query": [
+                                {
+                                    "key": "customer",
+                                    "value": "customer 1",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "orders"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8802"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
