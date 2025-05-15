@@ -21,6 +21,7 @@ Microservices are a software architecture where an application is split into sma
 ## Tools
 
 1. [RESTful APIs](./22_1_rest/README.md)
+2. [Watermill](./22_2_watermill/README.md)
 
 ## References
 
