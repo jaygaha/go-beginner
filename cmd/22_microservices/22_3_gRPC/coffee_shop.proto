@@ -1,0 +1,43 @@
+syntax = "proto3"; // Proto version
+package coffee_shop; // Package name or namespace
+
+option go_package = "github.com/jaygaha/go-beginner/cmd/22_microservices/22_3_gRPC/coffeeshop_proto"; // Go package name
+
+// Service definition: A service is a collection of RPCs
+// RPC: Remote Procedure Call
+// RPC: A method that is called on a server and returns a response
+service CoffeeShop {
+  	rpc GetMenu(MenuRequest) returns (stream Menu) {} // GetMenu is a method that returns a stream of Menu
+	rpc PlaceOrder(Order) returns (Receipt) {}
+	rpc GetOrderStatus(Receipt) returns (OrderStatus) {}
+}
+
+
+// Message definition: A message is a collection of fields
+// Field: A field is a name-value pair
+// Field: A field can be a primitive type, a message, or a repeated field
+// Field: A field can be optional or required
+
+message MenuRequest {}
+
+message Order {
+	repeated Item items = 1; // repeated field is a list of items
+}
+
+message Receipt {
+	string id = 1;
+}
+
+message OrderStatus {
+	string orderId = 1;
+	string status = 2;
+}
+
+message Menu {
+	repeated Item items = 1;
+}
+
+message Item {
+	string id = 1;
+	string name = 2;
+}
