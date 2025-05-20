@@ -13,3 +13,4 @@ The most common web frameworks and libraries used in Go are:
 09. [RESTful](restful/README.md): A RESTful APIs implementation in Go.
 10. [gqlgen](gqlgen/README.md): gqlgen is a Go library for building GraphQL servers without any fuss.
 11. [Echo](echo/README.md): A minimalistic web framework for Go.
+12. [Centrifuge](centrifugo_ws/README.md): A real-time messaging server that simplifies WebSocket implementation.

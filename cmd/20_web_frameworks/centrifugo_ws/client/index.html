@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Centrifuge Chat</title>
+    <script src="https://unpkg.com/centrifuge@5.3.2/dist/centrifuge.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #messages { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; }
+        #input { width: 300px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Centrifuge Chat App Demo</h1>
+    <div id="messages"></div>
+    <input id="input" type="text" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        // Helper function to display messages
+        function drawText(text) {
+            const div = document.createElement('div');
+            div.innerHTML = text + '<br>';
+            document.getElementById('messages').appendChild(div);
+        }
+
+        // Initialize Centrifuge client
+        const centrifuge = new Centrifuge('ws://localhost:8800/connection/websocket', {
+            debug: true // Enable client-side debugging
+        });
+
+        // Handle connection events
+        centrifuge.on('connecting', function(ctx) {
+            drawText('Connecting: ' + JSON.stringify(ctx));
+            document.getElementById('input').setAttribute('disabled', 'true');
+        });
+        centrifuge.on('connected', function(ctx) {
+            drawText('Connected over ' + ctx.transport);
+            document.getElementById('input').removeAttribute('disabled');
+        });
+        centrifuge.on('disconnected', function(ctx) {
+            drawText('Disconnected: ' + JSON.stringify(ctx));
+            document.getElementById('input').setAttribute('disabled', 'true');
+        });
+        centrifuge.on('error', function(err) {
+            drawText('Error: ' + JSON.stringify(err));
+        });
+
+        // Create subscription to 'chat' channel
+        const sub = centrifuge.newSubscription('chat');
+
+        // Handle subscription events
+        sub.on('subscribed', function(ctx) {
+            drawText('Subscribed to chat channel');
+        });
+        sub.on('publication', function(ctx) {
+            drawText('Message: ' + JSON.stringify(ctx.data));
+        });
+        sub.on('error', function(err) {
+            drawText('Subscription error: ' + JSON.stringify(err));
+        });
+
+        // Subscribe and connect
+        sub.subscribe();
+        centrifuge.connect();
+
+        // Send message function
+        function sendMessage() {
+            const input = document.getElementById('input');
+            const message = input.value.trim();
+            if (message) {
+                // Send JSON payload
+                sub.publish({ input: message })
+                    .then(() => {
+                        drawText('Sent: ' + message);
+                        input.value = '';
+                    })
+                    .catch(err => {
+                        drawText('Publish error: ' + JSON.stringify(err));
+                    });
+            }
+        }
+    </script>
+</body>
+</html>
