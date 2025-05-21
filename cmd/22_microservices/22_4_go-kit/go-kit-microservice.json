@@ -1,0 +1,71 @@
+{
+    "info": {
+        "_postman_id": "81c81f3a-ccfc-47ca-b2a0-aae7c2dfafb7",
+        "name": "go-kit-microservice",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Get feedbacks",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8800/feedbacks",
+                    "path": [
+                        "feedbacks"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8800"
+                }
+            }
+        },
+        {
+            "name": "Add feedback",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8800/feedbacks",
+                    "path": [
+                        "feedbacks"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8800"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"message\": \"My feedback to your app\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Get feedback",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8800/feedbacks/F20250519165729",
+                    "path": [
+                        "feedbacks",
+                        "F20250519165729"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8800"
+                }
+            }
+        }
+    ]
+}
