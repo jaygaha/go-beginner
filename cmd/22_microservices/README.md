@@ -24,6 +24,7 @@ Microservices are a software architecture where an application is split into sma
 2. [Watermill](./22_2_watermill/README.md)
 3. [gRPC](./22_3_grpc/README.md)
 4. [go-kit](./22_4_go_kit/README.md)
+5. [Micro](./22_5_go_micro/README.md)
 
 ## References
 

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Rental</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        #movies {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        .movie-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .movie-item:last-child {
+            border-bottom: none;
+        }
+        .movie-item img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .movie-details {
+            flex: 1;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background-color: #2980b9;
+        }
+        #output {
+            font-family: 'Courier New', Courier, monospace; /* Monospaced font for console feel */
+            background-color: #2c3e50; /* Dark background */
+            color: #ecf0f1; /* Light text color */
+            border: 1px solid #34495e; /* Border to define the console area */
+            border-radius: 5px;
+            padding: 10px;
+            max-height: 200px; /* Limit height */
+            overflow-y: auto; /* Scroll if content overflows */
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        #output div {
+            margin-bottom: 5px; /* Space between log entries */
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Rental Service</h1>
+    <h2>Available Movies</h2>
+    <div id="movies"></div>
+    <div id="output"></div>
+
+    <script>
+        function log(text) {
+            const div = document.createElement('div');
+            div.innerHTML = text + '<br>';
+            document.getElementById('output').appendChild(div);
+            const outputDiv = document.getElementById('output');
+            outputDiv.scrollTop = outputDiv.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        // List movies on page load
+        async function listMovies() {
+            try {
+                const response = await fetch('http://localhost:8800/movies', { method: 'GET' });
+                if (!response.ok) {
+                    throw new Error(`${response.status} - ${await response.text()}`);
+                }
+                const movies = await response.json();
+                const moviesDiv = document.getElementById('movies');
+                moviesDiv.innerHTML = '';
+
+                movies.forEach(movie => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'movie-item';
+
+                    const img = document.createElement('img');
+                    img.src = movie.poster_url || 'https://via.placeholder.com/100x150?text=No+Image';
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'movie-details';
+                    detailsDiv.innerHTML = `
+                        <strong>${movie.title}</strong> (${movie.release_year})<br>
+                        <small>ID: ${movie.id}</small><br>
+                        <small>Rented: ${movie.is_rented ? 'Yes' : 'No'}</small>
+                    `;
+
+                    const rentBtn = document.createElement('button');
+                    rentBtn.textContent = 'Rent';
+                    rentBtn.disabled = movie.is_rented;
+                    rentBtn.onclick = () => rentMovie(movie.id);
+
+                    itemDiv.appendChild(img);
+                    itemDiv.appendChild(detailsDiv);
+                    itemDiv.appendChild(rentBtn);
+                    moviesDiv.appendChild(itemDiv);
+                });
+
+                log('Movies loaded');
+            } catch (err) {
+                log(`Failed to load movies: ${err.message}`);
+            }
+        }
+
+        // Rent a movie by ID
+        async function rentMovie(movieId) {
+            try {
+                const response = await fetch('http://localhost:8800/rent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ movie_id: movieId })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`${response.status} - ${await response.text()}`);
+                }
+
+                const data = await response.json();
+                log(`Success: ${data.message}`);
+                listMovies(); // Refresh movie list
+            } catch (err) {
+                log(`Failed to rent movie: ${err.message}`);
+            }
+        }
+
+        // Load movies on page load
+        window.onload = listMovies;
+    </script>
+</body>
+</html>
