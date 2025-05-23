@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package = "github.com/jaygaha/go-beginner/cmd/22_microservices/22_6_gRPC-gateway/proto/greet_proto";
+
+import "google/api/annotations.proto";
+
+service GreetService{
+    // Translates "hello" into the requested locale with the given name.
+    rpc TranslateHello(HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            post: "/v1/greet"
+            body: "*"
+        };
+    }
+}
+
+// The request message containing the locale code and a name.
+message HelloRequest {
+    string locale = 1; // e.g. "en", "jp", "fr", etc.
+    string name = 2;   // Name to include in the greeting.
+}
+
+
+// The response message containing the greeting translation.
+message HelloReply {
+    string message = 1;
+}
