@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mission;
+option go_package = "github.com/jaygaha/go-beginner/cmd/22_microservices/22_9_twirp/rpc/mission";
+
+service MissionService {
+  rpc PlanMission(PlanMissionRequest) returns (PlanMissionResponse);
+}
+
+message PlanMissionRequest {
+  string planet_name = 1; // required
+  string spacecraft = 2;  // optional
+}
+
+message PlanMissionResponse {
+  string mission_id = 1;
+  string planet_name = 2;
+  string spacecraft = 3;
+  string launch_date = 4; // ISO 8601 format
+  int64 travel_time_days = 5;
+}
