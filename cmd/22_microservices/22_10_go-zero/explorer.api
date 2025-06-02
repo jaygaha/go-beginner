@@ -1,0 +1,29 @@
+syntax = "api"
+
+info (
+	title:   "Galactic Explorer API"
+	desc:    "API to query habitable exoplanets"
+	author:  "Jay"
+	version: "0.1"
+)
+
+type ExoplanetQueryRequest {
+	MaxDistanceLy   int64   `json:"max_distance_ly,range=[1:100000]"` // Max distance in light-years
+	MinHabitability float64 `json:"min_habitability,range=[0:1]"` // Habitability score (0-1)
+}
+
+type Exoplanet {
+	Name         string  `json:"name"`
+	DistanceLy   int64   `json:"distance_ly"`
+	Habitability float64 `json:"habitability"`
+}
+
+type ExoplanetQueryResponse {
+	Exoplanets []Exoplanet `json:"exoplanets"`
+}
+
+service explorer-api {
+	@handler queryExoplanets
+	post /exoplanets/query (ExoplanetQueryRequest) returns (ExoplanetQueryResponse)
+}
+
