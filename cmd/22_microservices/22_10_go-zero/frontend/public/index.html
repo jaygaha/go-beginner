@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Explorer</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-900 bg-opacity-75">
+  <div class="p-6 bg-gray-800 bg-opacity-80 rounded-lg shadow-lg max-w-2xl w-full">
+    <h1 class="text-3xl font-bold text-center mb-6">Galactic Explorer</h1>
+    <p class="text-center mb-4">Find habitable exoplanets in the cosmos!</p>
+    <form id="exoplanet-form" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">Max Distance (light-years)</label>
+        <input
+          type="number"
+          id="max-distance"
+          value="50"
+          class="mt-1 block w-full p-2 bg-gray-700 rounded-md text-white"
+          min="1"
+          max="100000"
+          required
+        />
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Min Habitability (0-1)</label>
+        <input
+          type="number"
+          id="min-habitability"
+          step="0.1"
+          value="0.7"
+          class="mt-1 block w-full p-2 bg-gray-700 rounded-md text-white"
+          min="0"
+          max="1"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md"
+      >
+        Search Exoplanets
+      </button>
+    </form>
+    <p id="error" class="mt-4 text-red-400 hidden"></p>
+    <div id="results" class="mt-6 hidden">
+      <h2 class="text-xl font-semibold">Results</h2>
+      <table class="w-full mt-2 border-collapse">
+        <thead>
+          <tr class="bg-gray-700">
+            <th class="p-2">Name</th>
+            <th class="p-2">Distance (ly)</th>
+            <th class="p-2">Habitability</th>
+          </tr>
+        </thead>
+        <tbody id="exoplanet-table"></tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Include transpiled JavaScript client -->
+  <script src="/src/client.js"></script>
+  <script>
+    const form = document.getElementById('exoplanet-form');
+    const errorEl = document.getElementById('error');
+    const resultsEl = document.getElementById('results');
+    const tableBody = document.getElementById('exoplanet-table');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorEl.classList.add('hidden');
+      resultsEl.classList.add('hidden');
+      tableBody.innerHTML = '';
+
+      const maxDistance = Number(document.getElementById('max-distance').value);
+      const minHabitability = Number(document.getElementById('min-habitability').value);
+
+      try {
+        const client = new ClientModule.Client();
+        const response = await client.queryExoplanets({
+          max_distance_ly: maxDistance,
+          min_habitability: minHabitability,
+        });
+
+        if (response.exoplanets.length > 0) {
+          response.exoplanets.forEach(planet => {
+            const row = document.createElement('tr');
+            row.className = 'border-t border-gray-600';
+            row.innerHTML = `
+              <td class="p-2">${planet.name}</td>
+              <td class="p-2">${planet.distance_ly}</td>
+              <td class="p-2">${planet.habitability}</td>
+            `;
+            tableBody.appendChild(row);
+          });
+          resultsEl.classList.remove('hidden');
+        } else {
+          errorEl.textContent = 'No exoplanets found matching the criteria.';
+          errorEl.classList.remove('hidden');
+        }
+      } catch (err) {
+        errorEl.textContent = 'Failed to fetch exoplanets: ' + err.message;
+        errorEl.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

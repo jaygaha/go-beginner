@@ -29,6 +29,7 @@ Microservices are a software architecture where an application is split into sma
 7. [RPCX](./22_7_rpcx/README.md)
 8. [Protocol Buffers](./22_8_protocol_buffers/README.md)
 9. [Twirp](./22_9_twirp/README.md)
+10. [Go-Zero](./22_10_go-zero/README.md)
 
 ## References
 
